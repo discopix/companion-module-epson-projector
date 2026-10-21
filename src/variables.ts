@@ -1,15 +1,24 @@
 import type ModuleInstance from './main.js'
 
 export type VariablesSchema = {
-	variable1: string
-	variable2: string
-	variable3: string
+	projName: string
+	powerState: boolean
+	powerStatus: string
+	shutterState: boolean
+	shutterStatus: string
 }
 
 export function UpdateVariableDefinitions(self: ModuleInstance): void {
 	self.setVariableDefinitions({
-		variable1: { name: 'My first variable' },
-		variable2: { name: 'My second variable' },
-		variable3: { name: 'Another variable' },
+		projName: { name: 'Projector Name' },
+		powerState: { name: 'Power State On/Off' },
+		powerStatus: { name: 'Power Status' },
+		shutterState: { name: 'Shutter State On (Closed) / Off (Open)' },
+		shutterStatus: { name: 'Shutter Status' },
+	})
+	self.setVariableValues({
+		powerState: false,
+		shutterState: false,
+		shutterStatus: 'Shutter Unknown',
 	})
 }
